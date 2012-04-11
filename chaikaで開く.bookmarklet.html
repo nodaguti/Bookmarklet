@@ -1,0 +1,15 @@
+<a href = "javascript:(function(){var url=location.href;if(url.indexOf(%22read.cgi%22)%3E-1){location.href=%22http://127.0.0.1:8823/thread/%22+(url.replace(/l?[\d\-]+$/,%27%27)+%22l30%22);}else{location.href=%22chaika://board/%22+url;}})();">chaika‚ÅŠJ‚­</a>
+
+
+<br><br>
+<xmp>
+(function(){
+var url = location.href;
+
+	if(url.indexOf("read.cgi") > -1){
+		location.href="http://127.0.0.1:8823/thread/"+(url.replace(/l?[\d\-]+$/,'') + "l30");
+	}else{
+		location.href="chaika://board/"+url;
+	}
+})();
+</xmp>

@@ -1,0 +1,35 @@
+<p>
+<a href="javascript:(function(){var d=window.document;var css;if(css=d.getElementById(%27safe-browse-css%27)){css.parentNode.removeChild(css);var d_imgs=d.getElementsByTagName(%27img%27);var alt;for(var j=0;j%3Cd_imgs.length;j++){alt=d_imgs[j].previousSibling;alt.parentNode.removeChild(alt);}}else{var link=d.createElement(%27style%27);link.type=%27text/css%27;link.appendChild(d.createTextNode(%22*{color:#000!important;background-color:#fff!important;background-image:none!important;}img{visibility:hidden!important;}.safe-browse-imgalt:hover+img{visibility:visible!important;}%22));link.id=%27safe-browse-css%27;d.getElementsByTagName(%27head%27)[0].appendChild(link);var imgs=d.getElementsByTagName(%27img%27);var alt;for(var i=0;i%3Cimgs.length;i++){alt=d.createElement(%27a%27);alt.setAttribute(%27href%27,imgs[i].src||%27%27);alt.target=%27_blank%27;alt.setAttribute(%27class%27,%27safe-browse-imgalt%27);imgs[i].parentNode.insertBefore(alt,imgs[i]);alt.appendChild(d.createTextNode(%27[%27+(imgs[i].alt||%27image%27)+%27]%27));}}})();">Monotonize This Page</a></p><br><br>
+
+<xmp>
+(function(){
+	var d=window.document;
+	var css;
+
+	if(css=d.getElementById('safe-browse-css')){
+		css.parentNode.removeChild(css);
+		var d_imgs=d.getElementsByTagName('img');
+		var alt;
+		for(var j=0;j<d_imgs.length;j++){
+			alt = d_imgs[j].previousSibling;
+			alt.parentNode.removeChild(alt);
+		}
+	}else{
+		var link=d.createElement('style');
+		link.type='text/css';
+		link.appendChild(d.createTextNode("*{color:#000!important;background-color:#fff!important;background-image:none!important;}img{visibility:hidden!important;}.safe-browse-imgalt:hover+img{visibility:visible!important;}"));
+		link.id='safe-browse-css';
+		d.getElementsByTagName('head')[0].appendChild(link);
+		var imgs=d.getElementsByTagName('img');
+		var alt;
+		for(var i=0;i<imgs.length;i++){
+			alt = d.createElement('a');
+			alt.setAttribute('href',imgs[i].src || '');
+			alt.target = '_blank';
+			alt.setAttribute('class','safe-browse-imgalt');
+			imgs[i].parentNode.insertBefore(alt,imgs[i]);
+			alt.appendChild(d.createTextNode('[' + (imgs[i].alt || 'image') + ']'));
+		}
+	}
+})();
+</xmp>

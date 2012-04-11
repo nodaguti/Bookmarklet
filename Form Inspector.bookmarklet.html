@@ -1,0 +1,120 @@
+<a href='javascript:function s(abc){var d=window.document;var text,a;var inputs=d.getElementsByTagName(%22input%22);var form=d.getElementsByTagName(%22form%22);if(!abc){a=prompt(%22選択してください。\n\n0:使い方\n1:パスワード(*)を可視化\n2:不可視入力欄を可視化\n3:最大文字数制限除去\n4:name属性表示\n5:select,radioのvalue書き換え\n6:get,post切り替えボタン配置\n\n7:ALL%22);if(!a) return;a=a.split(%22,%22);for(var i=0;i%3Ca.length;i++) eval(%22s(%27%22+a[i]+%22%27);%22);return;}else a=abc;switch(a){case %220%22:alert(%22Form解析スクリプト  Ver 0.0.2.20081011\ncreated by nodaguchi\nhttp://nodaguti.ryuquo.net/\n\n,で区切ると順番に複数実行可能。%22);break;case %221%22:for(var i=0;i%3Cinputs.length;i++){if(inputs[i].type==%22password%22) inputs[i].type=%22text%22;}break;case %222%22:for(var i=0;i%3Cinputs.length;i++){if(inputs[i].type==%22hidden%22) inputs[i].type=%22text%22;}break;case %223%22:for(var i=0;i%3Cinputs.length;i++) inputs[i].removeAttribute(%22maxlength%22);break;case %224%22:for(var i=0;i%3Cinputs.length;i++){text=d.createTextNode(inputs[i].name);inputs[i].parentNode.insertBefore(text,inputs[i]);}break;case %225%22:var select=d.getElementsByTagName(%22select%22);var r,option;for(var i=0;i%3Cselect.length;i++){r=d.createElement(%22input%22);r.type=%22text%22;r.name=select[i].name;r.value=select[i].value;r.size=%225%22;option=select[i].getElementsByTagName(%22option%22);for(j=0;j%3Coption.length;j++) option[j].innerHTML += %22,%22+option[j].value;select[i].parentNode.insertBefore(r,select[i]);select[i].name=select[i].name+%22_%22;r=null;option=null;}var rai;var nod=0;for(var i=0;i%3Cinputs.length;i++){if(inputs[i].type==%22radio%22 && nod==0){rai=d.createElement(%22input%22);rai.type=%22text%22;rai.name=inputs[i].name;rai.value=inputs[i].value;rai.size=%226%22;rai.style.display=%22block%22;inputs[i].name=inputs[i].name + %22_%22;inputs[i].parentNode.insertBefore(rai,inputs[i].previousSibling);nod++;}}var ra;for(var i=0;i%3Cinputs.length;i++){if(inputs[i].type==%22radio%22){ra=d.createTextNode(%22  [%22 + inputs[i].value + %22]  %22);inputs[i].parentNode.insertBefore(ra,inputs[i].nextSibling);ra=null;}}break;case %226%22:var method=%22%3Cselect id=%27method%27 onchange=%27f=document.getElementsByTagName(\%22form\%22);for(var j=0;j%3Cf.length;j++)f[j].method=this.value;%27%3E%3Coption value=%27post%27%3Epost%3C/option%3E%3Coption value=%27get%27%3Eget%3C/option%3E%3C/select%3E%22;var div2=d.createElement(%22div%22);for(var i=0;i%3Cinputs.length;i++){if(inputs[i].type==%22submit%22) inputs[i].parentNode.insertBefore(div2,inputs[i]);}div2.innerHTML=method;break;case %227%22:for(i=1;i%3C=6;i++)eval(%22s(%27%22+i+%22%27);%22);break;default:break;}}s();'>Form Inspector</a>
+
+<br><br>
+
+<xmp>
+function s(abc){
+var d = window.document;
+var text,a;
+var inputs = d.getElementsByTagName("input");
+var form = d.getElementsByTagName("form");
+
+if(!abc){
+	a = prompt("選択してください。
+	\n\n0:使い方
+	\n1:パスワード(*)を可視化
+	\n2:不可視入力欄を可視化
+	\n3:最大文字数制限除去
+	\n4:name属性表示
+	\n5:select,radioのvalue書き換え
+	\n6:get,post切り替えボタン配置
+	
+	\n\n7:ALL");
+	if(!a) return;
+	a = a.split(",");
+	for(var i=0;i<a.length;i++) eval("s('"+a[i]+"');");return;
+}
+else a=abc;
+
+
+
+switch(a){
+
+	case "0":
+		alert("Form解析スクリプト  Ver 0.0.2.20081011\ncreated by nodaguchi\nhttp://nodaguti.ryuquo.net/\n\n,で区切ると順番に複数実行可能。");
+		break;
+
+	case "1":
+		for(var i=0;i<inputs.length;i++){
+			if(inputs[i].type == "password") inputs[i].type = "text";
+		}
+		break;
+
+	case "2":
+		for(var i=0;i<inputs.length;i++){
+			if(inputs[i].type == "hidden") inputs[i].type="text";
+		}
+		break;
+
+	case "3":
+		for(var i=0;i<inputs.length;i++) inputs[i].removeAttribute("maxlength");
+		break;
+
+	case "4":
+		for(var i=0;i<inputs.length;i++){
+			text = d.createTextNode(inputs[i].name);
+			inputs[i].parentNode.insertBefore(text,inputs[i]);
+		}
+		break;
+
+	case "5":
+		var select = d.getElementsByTagName("select");
+		var r,option;
+		for(var i=0;i<select.length;i++){
+			r = d.createElement("input");
+			r.type = "text";
+			r.name = select[i].name;
+			r.value = select[i].value;
+			r.size = "5";
+			option = select[i].getElementsByTagName("option");
+			for(j=0;j<option.length;j++) option[j].innerHTML += ","+option[j].value;
+			select[i].parentNode.insertBefore(r,select[i]);
+			select[i].name = select[i].name+"_";
+			r = null;option = null;
+		}
+
+		var rai;var nod = 0;
+		for(var i=0;i<inputs.length;i++){
+			if(inputs[i].type == "radio" && nod == 0){
+				rai = d.createElement("input");
+				rai.type="text";
+				rai.name = inputs[i].name;
+				rai.value = inputs[i].value;
+				rai.size="6";
+				rai.style.display = "block";
+				inputs[i].name = inputs[i].name + "_";
+				inputs[i].parentNode.insertBefore(rai,inputs[i].previousSibling);
+				nod++;
+			}
+		}
+
+		var ra;
+		for(var i=0;i<inputs.length;i++){
+			if(inputs[i].type == "radio"){
+				ra = d.createTextNode("  [" + inputs[i].value + "]  ");
+				inputs[i].parentNode.insertBefore(ra,inputs[i].nextSibling);
+				ra = null;
+			}
+		}
+		break;
+
+	case "6":
+		var method = "<select id='method' onchange='f=document.getElementsByTagName(\"form\");for(var j=0;j<f.length;j++)f[j].method=this.value;'><option value='post'>post</option><option value='get'>get</option></select>";
+		var div2 = d.createElement("div");
+		for(var i=0;i<inputs.length;i++){
+			if(inputs[i].type == "submit") inputs[i].parentNode.insertBefore(div2,inputs[i]);
+		}
+		div2.innerHTML = method;
+		break;
+
+
+	case "7":
+		for(i=1;i<=6;i++)eval("s('"+i+"');");
+		break;
+
+	default:break;
+}
+
+}
+s();
+</xmp>

@@ -1,0 +1,14 @@
+<a href='javascript:(function(){var a=prompt(%22翻訳するサイトを入力\n(無入力の場合、現在のページ)%22);if(!a){a=document.URL;}a=a.replace(/(http:|https:)/g,%22%22);a=a.replace(/\/*/g,%22%22);a=a.replace(/\//g,%22%22);a=a.replace(/w{3}\./g,%22%22);window.open(%22http://japanize.31tools.com/index.cgi/view?target=%22+a,%22%22,%22%22);})();'>Japanezeで翻訳</a>
+
+<br><br>
+<xmp>
+(function(){
+var a = prompt("翻訳するサイトを入力\n(無入力の場合、現在のページ)");
+if(!a){a=document.URL;}
+a=a.replace(/(http:|https:)/g,"");
+a=a.replace(/\/*/g,"");
+a=a.replace(/\//g,"");
+a=a.replace(/w{3}\./g,"");
+window.open("http://japanize.31tools.com/index.cgi/view?target="+a,"","");
+})();
+</xmp>
